@@ -224,6 +224,25 @@ pub(super) fn find_family_for_model(slug: &str) -> ModelFamily {
             apply_patch_tool_type: Some(ApplyPatchToolType::Function),
             context_window: Some(96_000),
         )
+    } else if slug.starts_with("deepseek-chat") || slug.starts_with("deepseek/deepseek-chat") {
+        model_family!(
+            slug, "deepseek-chat",
+            apply_patch_tool_type: Some(ApplyPatchToolType::Function),
+            shell_type: ConfigShellToolType::ShellCommand,
+            supports_parallel_tool_calls: true,
+            context_window: Some(128_000),
+        )
+    } else if slug.starts_with("mimo-v2-flash")
+        || slug.starts_with("mi-mo-v2-flash")
+        || slug.starts_with("MiMo-V2-Flash")
+    {
+        model_family!(
+            slug, "mimo-v2-flash",
+            apply_patch_tool_type: Some(ApplyPatchToolType::Freeform),
+            shell_type: ConfigShellToolType::ShellCommand,
+            supports_parallel_tool_calls: true,
+            context_window: Some(128_000),
+        )
     } else if slug.starts_with("gpt-4o") {
         model_family!(
             slug, "gpt-4o",

@@ -1453,6 +1453,82 @@ mod tests {
     }
 
     #[test]
+    fn test_deepseek_chat_defaults() {
+        assert_model_tools(
+            "deepseek-chat",
+            &Features::with_defaults(),
+            &[
+                "shell_command",
+                "list_mcp_resources",
+                "list_mcp_resource_templates",
+                "read_mcp_resource",
+                "update_plan",
+                "apply_patch",
+                "view_image",
+            ],
+        );
+    }
+
+    #[test]
+    fn test_deepseek_chat_unified_exec_web_search() {
+        assert_model_tools(
+            "deepseek-chat",
+            Features::with_defaults()
+                .enable(Feature::UnifiedExec)
+                .enable(Feature::WebSearchRequest),
+            &[
+                "exec_command",
+                "write_stdin",
+                "list_mcp_resources",
+                "list_mcp_resource_templates",
+                "read_mcp_resource",
+                "update_plan",
+                "apply_patch",
+                "web_search",
+                "view_image",
+            ],
+        );
+    }
+
+    #[test]
+    fn test_mimo_v2_flash_defaults() {
+        assert_model_tools(
+            "mimo-v2-flash",
+            &Features::with_defaults(),
+            &[
+                "shell_command",
+                "list_mcp_resources",
+                "list_mcp_resource_templates",
+                "read_mcp_resource",
+                "update_plan",
+                "apply_patch",
+                "view_image",
+            ],
+        );
+    }
+
+    #[test]
+    fn test_mimo_v2_flash_unified_exec_web_search() {
+        assert_model_tools(
+            "mimo-v2-flash",
+            Features::with_defaults()
+                .enable(Feature::UnifiedExec)
+                .enable(Feature::WebSearchRequest),
+            &[
+                "exec_command",
+                "write_stdin",
+                "list_mcp_resources",
+                "list_mcp_resource_templates",
+                "read_mcp_resource",
+                "update_plan",
+                "apply_patch",
+                "web_search",
+                "view_image",
+            ],
+        );
+    }
+
+    #[test]
     fn test_codex_mini_unified_exec_web_search() {
         assert_model_tools(
             "codex-mini-latest",

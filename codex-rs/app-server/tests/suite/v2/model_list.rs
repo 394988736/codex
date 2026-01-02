@@ -153,6 +153,33 @@ async fn list_models_returns_all_models_with_large_limit() -> Result<()> {
             default_reasoning_effort: ReasoningEffort::Medium,
             is_default: false,
         },
+        Model {
+        id: "deepseek-chat".to_string(),
+        model: "deepseek-chat".to_string(),
+        display_name: "deepseek-chat".to_string(),
+        description: "DeepSeek-V3.2 完美支持复杂编程任务、代码分析和多步骤问题解决。".to_string(),
+        supported_reasoning_efforts: vec![],
+        default_reasoning_effort: ReasoningEffort::Medium,
+        is_default: true,
+    },
+    Model {
+        id: "ddeepseek-reasoner".to_string(),
+        model: "deepseek-reasoner".to_string(),
+        display_name: "deepseek-reasoner".to_string(),
+        description: "DeepSeek-V3.2 是 DeepSeek 的最新旗舰推理模型，具备强大的思考模式（Reasoning Mode）工具调用能力。在思考模式下，模型能够进行多轮思考+工具调用，经过深度推理后给出更详尽准确的回答。完美支持复杂编程任务、代码分析和多步骤问题解决。".to_string(),
+        supported_reasoning_efforts: vec![],
+        default_reasoning_effort: ReasoningEffort::Medium,
+        is_default: true,
+    },
+    Model {
+        id: "mimo-v2-flash".to_string(),
+        model: "mimo-v2-flash".to_string(),
+        display_name: "mimo-v2-flash".to_string(),
+        description: "mimo-v2-flash is an open-source foundation language model developed by Xiaomi. It is a Mixture-of-Experts model with 309B total parameters and 15B active parameters, adopting hybrid attention architecture.".to_string(),
+        supported_reasoning_efforts: vec![],
+        default_reasoning_effort: ReasoningEffort::Medium,
+        is_default: true,
+    }
     ];
 
     assert_eq!(items, expected_models);
